@@ -4,6 +4,7 @@ import com.thetestingacademy.base.CommonToAllTest;
 import com.thetestingacademy.driver.DriverManager;
 import com.thetestingacademy.pages.pageObjectModel.vwo.improvedPOM.DashboardPage;
 import com.thetestingacademy.pages.pageObjectModel.vwo.improvedPOM.FreeTrialPage;
+import com.thetestingacademy.utils.AssertHelpers;
 import com.thetestingacademy.utils.PropertiesReader;
 import io.qameta.allure.*;
 import org.testng.Assert;
@@ -28,7 +29,8 @@ public class VwoFreeTrialAccountTest extends CommonToAllTest {
         FreeTrialPage freeTrialPage = new FreeTrialPage(DriverManager.getDriver());
         freeTrialPage.clickOnStratFreeTrialLink();
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), PropertiesReader.readKey("free_trial_url"));
+        //Assert.assertEquals(getDriver().getCurrentUrl(), PropertiesReader.readKey("free_trial_url"));
+        AssertHelpers.verifyEquals(getDriver().getCurrentUrl(),PropertiesReader.readKey("free_trial_url"));
         logger.info("The current url after landing on Free Trial page is: " + getDriver().getCurrentUrl());
         logger.info("Landed on Free Trial page successfully");
 
@@ -42,8 +44,11 @@ public class VwoFreeTrialAccountTest extends CommonToAllTest {
         String loggedUserName=dashboardPage.loggedInUserName();
         logger.info("Logged in user name on dashboard is: {} " + loggedUserName);
 
-        Assert.assertEquals(loggedUserName,PropertiesReader.readKey("expected_username"));
-        assertThat(loggedUserName).isNotBlank().isEqualTo(PropertiesReader.readKey("expected_username"));
+        //Assert.assertEquals(loggedUserName,PropertiesReader.readKey("expected_username"));
+        AssertHelpers.verifyEquals(loggedUserName,PropertiesReader.readKey("expected_username"));
+
+        //assertThat(loggedUserName).isNotBlank().isEqualTo(PropertiesReader.readKey("expected_username"));
+        AssertHelpers.verifyStringKey(loggedUserName,PropertiesReader.readKey("expected_username"));
 
         logger.info("Completed the VWO Free Trial Account Creation Test case successfully");
     }
