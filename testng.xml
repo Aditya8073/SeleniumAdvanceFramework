@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/aditya.verma/IdeaProjects/SeleniumAdvanceFramework">
+        <classes>
+<!--            <class name="com.thetestingacademy.tests.pageFactory.vwo.TestVWOLogin_PF">-->
+<!--            <methods><include name="testLoginNegativeVWO_PF"/></methods>-->
+<!--        </class>-->
+            <class name="com.thetestingacademy.tests.pageObjectModel.vwo.Test01_VWOLogin_NormalScript">
+                <methods>
+            <include name="test_negative_vwo_login"/>
+            <include name="testVWOLoginPositive"/>
+        </methods>
+        </class>
+            <class name="com.thetestingacademy.tests.pageObjectModel.vwo.Test02_VWOLogin_PropertiesReader">
+                <methods><include name="test_invalid_vwo_login_properties_reader"/>
+        </methods>
+        </class>
+        </classes>
+    </test>
+</suite>
